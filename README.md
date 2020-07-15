@@ -44,7 +44,7 @@ At the bottom of the page lies your complete partiture. Press "add bar" or "remo
 Click on a single beat to assign it a chord, that you can find in the chord selector on your right. 
 Use the piano keys to select a reference key and the compatible chords will appear just below. Alternatively, click on a preset, they are made out of the most popular chord progressions in Jazz.
 
-</br></br>
+</br>
 
 </br>
 
@@ -90,7 +90,9 @@ From now on just click on your name whenever you want to start Jazz Long.
 
 Your score will be automatically updated at the end of every session by adding it to your score on the database. Practice makes perfect, compete with all the other players and reach the top of the final score!
 
-<img src="Readme_images/Final_score.PNG"  align= "center" width="50%" style="margin-left:200px;">
+<p align="center">
+<img src="Readme_images/Final_score.PNG" width="50%" style="margin-left:200px;">
+ </p>
 </br>
 
 
