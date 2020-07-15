@@ -97,7 +97,8 @@ Your score will be automatically updated at the end of every session by adding i
 
 
 ## Where is Jazz Long
-For the best experience we strongly recommend downloading the app. However, Jazz Long is hosted online at the following link: https://zioTino96.github.io <gohead>
+For the best experience we strongly recommend downloading the app. However, Jazz Long is hosted online at the following link: https://zioTino96.github.io 
+
 Here you can find the video presentation of our work: https://youtu.be/2y9JGPbGHlw
 
 ## Who is Jazz Long
