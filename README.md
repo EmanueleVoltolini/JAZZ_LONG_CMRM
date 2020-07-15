@@ -46,7 +46,7 @@ Use the piano keys to select a reference key and the compatible chords will appe
 
 </br></br>
 
-</br></br>
+</br>
 
 ### Tickle those ivories
 <img align ="right" src="Readme_images/keyboard.PNG"  width="40%" height="40%" style="margin-left:10px; margin-bottom:10px;">
@@ -65,7 +65,7 @@ Choose your instrument between grand piano, Hammond organ and acoustic guitar.
 You can set the volume sliders choosing the best mix for the backing track and your improvisation.
 
 </br></br></br></br>
-<img align="right" src="Readme_images/Play_Stop_key_mode.PNG" width="30%" height="30%" style="margin-left:10px;">
+<img align="right" src="Readme_images/Play_Stop_key_mode.PNG" width="30%" height="30%" style="margin-top:10px;">
 The app will automatically detect the right notes and the errors, according to the major scale harmony theory, and your performance will be given a score.
 </br></br>
 
@@ -85,7 +85,8 @@ When you press "END" it will show all the statistics recorded about your current
 </br>
 Your name and your score have been saved on our database. 
 From now on just click on your name whenever you want to start Jazz Long.
-</br></br></br>
+</br></br>
+</br></br>
 
 Your score will be automatically updated at the end of every session by adding it to your score on the database. Practice makes perfect, compete with all the other players and reach the top of the final score!
 
