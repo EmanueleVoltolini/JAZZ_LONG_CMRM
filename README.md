@@ -38,9 +38,9 @@ You can set it by selecting the desired metric for your backing track (3/4, 4/4,
 <img align="right" src="Readme_images/Chord_sequence.PNG"  width="50%" height="50%" style="margin-left:10px;">
 At the bottom of the page lies your complete partiture. Press "add bar" or "remove bar" to adjust its the length. 
 
-<img align="left" src="Readme_images/Chord_selector.PNG"  width="50%" height="50%" style="margin-top:10px;">
+<img align="left" src="Readme_images/Chord_selector.PNG"  width="50%" height="50%" style="margin-top:15px;">
 </br>
-
+</br>
 Click on a single beat to assign it a chord, that you can find in the chord selector on your right. 
 Use the piano keys to select a reference key and the compatible chords will appear just below. Alternatively, click on a preset, they are made out of the most popular chord progressions in Jazz.
 
