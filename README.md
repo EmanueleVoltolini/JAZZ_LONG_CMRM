@@ -44,7 +44,7 @@ At the bottom of the page lies your complete partiture. Press "add bar" or "remo
 Click on a single beat to assign it a chord, that you can find in the chord selector on your right. 
 Use the piano keys to select a reference key and the compatible chords will appear just below. Alternatively, click on a preset, they are made out of the most popular chord progressions in Jazz.
 
-</br>
+</br></br>
 
 </br>
 
