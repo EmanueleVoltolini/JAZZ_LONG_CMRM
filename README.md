@@ -37,7 +37,7 @@ You can set it by selecting the desired metric for your backing track (3/4, 4/4,
 ### Beautiful Harmonies
 <img align="right" src="Readme_images/Chord_sequence.PNG"  width="50%" height="50%" style="margin-left:10px;">
 At the bottom of the page lies your complete partiture. Press "add bar" or "remove bar" to adjust its the length. 
-
+</br>
 <img align="left" src="Readme_images/Chord_selector.PNG"  width="50%" height="50%" style="margin-top:15px;">
 </br>
 </br>
@@ -90,10 +90,9 @@ From now on just click on your name whenever you want to start Jazz Long.
 
 Your score will be automatically updated at the end of every session by adding it to your score on the database. Practice makes perfect, compete with all the other players and reach the top of the final score!
 
-<img src="Readme_images/Final_score.PNG"  align= "center" width="50%" >
+<img src="Readme_images/Final_score.PNG"  align= "center" width="50%" style="margin-left:200px;">
 </br>
-</br>
-</br>
+
 
 ## Where is Jazz Long
 For the best experience we strongly recommend downloading the app. However, Jazz Long is hosted online at the following link: https://zioTino96.github.io 
