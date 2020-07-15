@@ -37,8 +37,8 @@ You can set it by selecting the desired metric for your backing track (3/4, 4/4,
 ### Beautiful Harmonies
 <img align="right" src="Readme_images/Chord_sequence.PNG"  width="50%" height="50%" style="margin-left:10px;">
 At the bottom of the page lies your complete partiture. Press "add bar" or "remove bar" to adjust its the length. 
-</br>
-<img align="left" src="Readme_images/Chord_selector.PNG"  width="50%" height="50%" style="margin-top:15px;">
+
+<img align="left" src="Readme_images/Chord_selector.PNG"  width="50%" height="50%" style="margin-top:20px;">
 </br>
 </br>
 Click on a single beat to assign it a chord, that you can find in the chord selector on your right. 
