@@ -1,0 +1,2 @@
+PROBLEMI
+se sono in play devo fermarmi al click di: qualsiasi tasto della drum, bottoni add/remove bar e presets
