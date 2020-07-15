@@ -7,7 +7,7 @@
 /*SEZIONE A DESTRA*/
 #chords_selector{
     width: 45vw;
-    height: 24vw;
+    height: 23vw;
     background: lightgrey;
     border-radius: 5px;
     position: fixed;
@@ -99,14 +99,14 @@
     height: 20%;
     background: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0)),url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/187/vwood.png);
     box-shadow: 0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset, 0 5px 15px rgba(0,0,0,0.5);
-    /* border: 1px solid red; */
+
 }
 .piano_button{
     width: 10%;
     position: relative;
     transform: translate( 100%, -50%);
     border-radius:5px;
-    /*left: 7.5%;*/
+
    
 } 
 .white_button{
@@ -135,7 +135,6 @@
 
 /*AREA PRESET*/
 #preset_list{
-   /* border: 1px solid red; */
     width: 20%;
     height: 15%;
     position: absolute;
@@ -158,20 +157,6 @@
 .selected_preset{
     background-color: #8cc0e6;
 }
-
-
-/*SEZIONE A SINISTRA
-#chords_presets{
-    width: 660px;
-    height: 330px;
-    background: lightgrey;
-    border-radius: 5px;
-    position: fixed;
-    left: 25%;
-    top: 30%;
-    transform: translate(-50%, -50%);   
-}
-*/
 
 
 /*SEZIONE IN BASSO*/
@@ -214,7 +199,6 @@
     height: 12%;
     margin-bottom: 6px;
     margin-right: 4px;
-    /*border: 1px solid red;*/
     display: inline-block;
 }
 
