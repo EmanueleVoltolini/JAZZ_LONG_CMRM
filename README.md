@@ -60,12 +60,12 @@ When you're done composing, it's time to play! Click "NEXT" to be redirected to 
 Choose your instrument between grand piano, Hammond organ and acoustic guitar.
 
 </br>
-<img align="right" src="Readme_images/Sliders.PNG" width="23%" height="12%" style="margin-left:30px;">
+<img align="right" src="Readme_images/Sliders.PNG" width="21%" height="11%" style="margin-left:30px;">
 </br></br>
-You can set the volume sliders, if you're not happy with the mix. 
+You can set the volume sliders choosing the best mix for the backing track and your improvisation.
 
 </br></br></br></br>
-<img align="right" src="Readme_images/Play_Stop_key_mode.PNG" width="20%" height="20%" style="margin-left:10px;">
+<img align="right" src="Readme_images/Play_Stop_key_mode.PNG" width="30%" height="30%" style="margin-left:10px;">
 The app will automatically detect the right notes and the errors, according to the major scale harmony theory, and your performance will be given a score.
 </br></br>
 
@@ -93,7 +93,6 @@ Your score will be automatically updated at the end of every session by adding i
 </br>
 </br>
 </br>
-<img align="left" src="Readme_images/sliding_bars.PNG" width="20%" height="20%" style="margin-left:10px;">
 
 ## Where is Jazz Long
 For the best experience we strongly recommend downloading the app. However, Jazz Long is hosted online at the following link: https://zioTino96.github.io 
