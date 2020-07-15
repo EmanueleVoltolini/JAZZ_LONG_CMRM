@@ -44,30 +44,29 @@ At the bottom of the page lies your complete partiture. Press "add bar" or "remo
 Click on a single beat to assign it a chord, that you can find in the chord selector on your right. 
 Use the piano keys to select a reference key and the compatible chords will appear just below. Alternatively, click on a preset, they are made out of the most popular chord progressions in Jazz.
 
-</br>
+</br></br>
 
 
 
 ### Tickle those ivories
-
 <img align ="right" src="Readme_images/keyboard.PNG"  width="40%" height="40%" style="margin-left:10px; margin-bottom:10px;">
 </br>
 When you're done composing, it's time to play! Click "NEXT" to be redirected to the following section and you can improvise on your MIDI keyboard while the track is being played. 
-
-</br>
-
+</br></br>
 <img align="left" src="Readme_images/Instrument_selection.PNG" width="40%" height="40%" style="margin-right:10px ;margin-top:10px;">
 Choose your instrument between grand piano, Hammond organ and acoustic guitar.
 
-</br></br></br></br>
+</br></br>
 
 <img align="right" src="Readme_images/Sliders.PNG" width="30%" height="15%" style="margin-left:10px;">
 </br></br>
 You can set the volume sliders, if you're not happy with the mix. 
 
 </br></br></br></br>
+
 The app will automatically detect the right notes and the errors, according to the major scale harmony theory, and your performance will be given a score.
-</br>
+</br></br>
+
 
 <img align="left" src="Readme_images/Statistics.PNG" width="40%"  style="margin-left:10px; margin-bottom:10px;">
 </br>
