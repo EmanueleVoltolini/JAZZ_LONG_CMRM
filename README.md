@@ -51,7 +51,9 @@ Use the piano keys to select a reference key and the compatible chords will appe
 ### Tickle those ivories
 <img align ="right" src="Readme_images/keyboard.PNG"  width="40%" height="40%" style="margin-left:10px; margin-bottom:10px;">
 </br>
-When you're done composing, it's time to play! Click "NEXT" to be redirected to the following section and you can improvise on your MIDI keyboard while the track is being played. 
+When you're done composing, it's time to play! Click "NEXT" to be redirected to the following section and you can improvise on your MIDI keyboard while the track is being played.
+**(Remmember to choose the zoom that better fits your type of screen!)**
+
 </br></br>
 <img align="left" src="Readme_images/Instrument_selection.PNG" width="40%" height="40%" style="margin-right:10px ;margin-top:10px;">
 Choose your instrument between grand piano, Hammond organ and acoustic guitar.
