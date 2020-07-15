@@ -90,7 +90,7 @@ From now on just click on your name whenever you want to start Jazz Long.
 
 Your score will be automatically updated at the end of every session by adding it to your score on the database. Practice makes perfect, compete with all the other players and reach the top of the final score!
 
-<img src="Readme_images/Final_score.PNG"  width="50%" style="margin-left:200px;">
+<img src="Readme_images/Final_score.PNG"  align= "center" width="50%" >
 </br>
 </br>
 </br>
