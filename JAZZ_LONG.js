@@ -132,7 +132,7 @@ var box_mode = document.querySelector(".mode_box");
 generate_stroke_selector();
 
 //////////////////////////////////////////TIMER MANAGEMENT//////////////////////////////////////////
-next_frame();
+next_frame();//start the animations
 function next_sub_beat(){//timer that goes with the rate of sixteenth
       for (i=0; i<N_drums; i++){
         if(drum.this_preset[i][this_sub_beat]){
@@ -152,17 +152,22 @@ function next_sub_beat(){//timer that goes with the rate of sixteenth
         }//if there is a chord in the current beat: play chord, update current key
       }
       render_stroke_selector();//Movement of the highlighted little squares(DM)
-      this_sub_beat++;
+      
+      if (this_sub_beat==0){
+        animation.prev_bar_milliseconds = Date.now();//Sets to zero the time passed from the previous bar
+      }
+
+      this_sub_beat++; //Update actual counter
       this_sub_beat = this_sub_beat%drum.N_beats;
+
       if (this_sub_beat == 0){
         if (section==2){played_bar++}
         if (this_bar == chord.N_BAR-1){ this_bar = 0;}
         else {this_bar = (this_bar + 1)%24;}
-        animation.prev_bar_milliseconds = Date.now();//Sets to zero the time passed from the previous bar
-      }    
+      }
 }
-function reset_timer(){
-  clearInterval(drum.timer);//resets the timer (it is called if there are changes on: bpm, shuffle/straight)
+function reset_timer(){//resets the timer (it is called if there are changes on: bpm, shuffle/straight)
+  clearInterval(drum.timer);//clear previous timer
   drum.timer = setInterval(function(){//creates a new timer
       if (drum.go){
           next_sub_beat();
@@ -357,7 +362,6 @@ empty_button.onclick = function(event) {
     if(chord.selected_beat_index != null){chord.MATRIX[Math.floor(chord.selected_beat_index/metric)][chord.selected_beat_index%metric]= null}
     render_beats();
 }
-
 //SELEZIONE preset
 function preset_selection(preset, index){
   preset.onclick = function(event) {DM_stop(); preset_clicked(event, index)}
@@ -367,7 +371,6 @@ function preset_clicked(event, index){ //Acts on preset click
     chord.PRESET = index+1; //Sets the variable to build the right preset (0 means no preset)
     preset_creation(); //Calls the function that builds the preset
 }
-
 
 all_presets.forEach(preset_selection) 
 
@@ -530,6 +533,7 @@ function DM_play(){//Buttons "start" both in composition and execution
   drum.alpha = 0;
   drum.go = true;
   resync();
+  next_sub_beat();
 }
 function DM_stop(){//Buttons "stop" both in composition and execution
   play_button.innerHTML = 'PLAY';
@@ -954,8 +958,8 @@ function render_statistics(){//Prints the statistics on screen
   row=document.querySelectorAll('.tb');
   for(i=0; i<stat.length; i++){
     row[i].innerHTML=String(statistics[stat[i]]);
-    }
   }
+}
 function render_score(){
   db.collection('Score').doc('Player').get().then(//Download the scores
     function (doc){
@@ -1002,7 +1006,6 @@ function play_chord (obj){
     chord_handlers[i] = chord_created[i];
   }
 }
-
 function play_midi(index){
   exec.actual_note = new Audio(path + instrument_path[instrument_main]+ index +'.wav');
   exec.actual_note.loop = false;
@@ -1010,14 +1013,12 @@ function play_midi(index){
   exec.actual_note.volume = pianoGain;
   exec.actual_note.play();
 }
-
 function play_drum(index){
     mySound = samples[index].cloneNode();
     mySound.onended = function(){mySound.remove()};
     mySound.volume = drumGain;
     mySound.play();
 }
-
 function stop_previous_chord(){
   chord_handlers.forEach(function(obj,idx){
     if (obj != null){
