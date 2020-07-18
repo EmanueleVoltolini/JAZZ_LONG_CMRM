@@ -53,7 +53,7 @@ Use the piano keys to select a reference key and the compatible chords will appe
 
 When you're done composing, it's time to play! Click "NEXT" to be redirected to the following section and you can improvise on your MIDI keyboard while the track is being played.
 
-**(Remmember to choose the zoom that better fits your type of screen!)**
+**(Remember to choose the zoom that better fits your type of screen!)**
 
 </br></br>
 <img align="left" src="Readme_images/Instrument_selection.PNG" width="40%" height="40%" style="margin-right:10px ;margin-top:10px;">
@@ -100,6 +100,8 @@ Your score will be automatically updated at the end of every session by adding i
 For the best experience we strongly recommend downloading the app. However, Jazz Long is hosted online at the following link: https://zioTino96.github.io 
 
 Here you can find the video presentation of our work: https://youtu.be/2y9JGPbGHlw
+
+Wanna know more about the structure of the code? Take a glance at the file CodeMap.pdf
 
 ## Who is Jazz Long
 JL (Jack Long)
