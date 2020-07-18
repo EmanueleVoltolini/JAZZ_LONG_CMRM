@@ -530,6 +530,7 @@ function DM_play(){//Buttons "start" both in composition and execution
   drum.alpha = 0;
   drum.go = true;
   resync();
+  reset_timer();
 }
 function DM_stop(){//Buttons "stop" both in composition and execution
   play_button.innerHTML = 'PLAY';
