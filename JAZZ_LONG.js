@@ -230,9 +230,13 @@ function changeSection(nextSection){//Function to change the displayed section
     if (drum.go){DM_stop();stop_bouncing();}
 
 }
+
+//////////////////////////////////////////Audio Context//////////////////////////////////////////
 function resume(){//Unlocks AudioContext
   audioCtx.resume();
 }
+
+//////////////////////////////////////////Intro//////////////////////////////////////////
 name_input.onkeypress = function insert_name(event){//Input of new player "object"
   if (event.keyCode == 13){
       myName = name_input.value;
@@ -271,6 +275,8 @@ function difficulty_selection(){
   else {difficulty_level++;}
   level_button.innerHTML = difficulty_level_array[difficulty_level];
 }
+
+//////////////////////////////////////////Slider Sync//////////////////////////////////////////
 function update_slider(){//set the value of the gain accordingly to the slider
   if (section==1){
     drumgain_comp.onchange = function(){drumGain = drumgain_comp.value/100;render_slider();};
@@ -370,10 +376,7 @@ function preset_clicked(event, index){ //Acts on preset click
     chord.PRESET = index+1; //Sets the variable to build the right preset (0 means no preset)
     preset_creation(); //Calls the function that builds the preset
 }
-
-
 all_presets.forEach(preset_selection) 
-
 function preset_creation(){ //Builds the presets inside the matrix and calls the render for the chord sequence section
     while (chord.N_BAR>0){ //Removes all he existing bars
       remove_bar();
@@ -632,7 +635,6 @@ else{
 }
   return new_chord;
 }
-
 //Bouncing ball
 function play_bouncing(){
   ball.control=0;
@@ -641,7 +643,6 @@ function play_bouncing(){
 function stop_bouncing(){
   ball.control=1;
 }
-
 //Get notes played by user and do the various verifications 
 function getMIDIMessage(message) { //Receive data from the MIDI message assigning values to variables
     exec.command = message.data[0];
@@ -709,6 +710,7 @@ function selected_scale(scale){//Assign true values to the keys of the "right" s
   }
 }
 
+//////////////////////////////////////////FINAL PAGE//////////////////////////////////////////
 //Last page can refresh it all if finished
 function reset (){
   location.reload();
@@ -743,6 +745,8 @@ function renderSection(){//Changes showed window
       final.style.display = "inline";    
   }
 }
+
+//////////////////////////////////////////Intro//////////////////////////////////////////
 function render_players(){//Shows the names of the pre-existing players on the intro section
   document.querySelectorAll('.player').forEach(function(obj){obj.remove()});
   players.forEach(function(name,index){
@@ -997,7 +1001,7 @@ function render_score(){
 }
 
 //////////////////////////////////////////Easter Egg//////////////////////////////////////////
-// We've been dying on thousands of bugs. Let us fool around a little bit
+// We've been dying on thousands of bugs. Let us fool around a little bit ;)
 function easter_egg(){
     Nyan_Ascii = 
     '░░▓▓░░░░░░░░▓▓░░' + '\n' +
@@ -1021,7 +1025,7 @@ function easter_egg(){
 ////////////////////////////////////////// SOUND ///////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-function play_chord (obj){
+function play_chord (obj){//play a chord
   stop_previous_chord();
   chord_created = create_chord(obj.semitones, obj.tonalita, obj.seventh, obj.ninth);
   for (i=0; i<chord_created.length; i++) {
@@ -1030,20 +1034,20 @@ function play_chord (obj){
     chord_handlers[i] = chord_created[i];
   }
 }
-function play_midi(index){
+function play_midi(index){//output sound from MIDI keyboard
   exec.actual_note = new Audio(path + instrument_path[instrument_main]+ index +'.wav');
   exec.actual_note.loop = false;
   keys_handlers[index] = exec.actual_note;
   exec.actual_note.volume = pianoGain;
   exec.actual_note.play();
 }
-function play_drum(index){
+function play_drum(index){//play the drums
     mySound = samples[index].cloneNode();
     mySound.onended = function(){mySound.remove()};
     mySound.volume = drumGain;
     mySound.play();
 }
-function stop_previous_chord(){
+function stop_previous_chord(){//interrupt the sound from previous chords
   chord_handlers.forEach(function(obj,idx){
     if (obj != null){
       chord_handlers[idx].pause();
