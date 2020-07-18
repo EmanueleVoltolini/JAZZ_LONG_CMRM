@@ -92,7 +92,7 @@ var drum = {N_beats:16,metric_subdivision:4,tempo_bpm:120,go:false,prescaler:0,t
 var chord_sequence_matrix= [];
 for (i=0; i<24; i++){chord_sequence_matrix[i]= new Array(metric).fill(null)} //Creates a matrixwith a maximum of 24 bars
 var chord = {KEY:0,PRESET:0,MATRIX:chord_sequence_matrix,SETTIMA:false,NONA:false,N_BAR:0,selected_beat_index:null};
-var this_bar = 0;
+var this_bar = -1;
 var this_sub_beat = 0;
 var this_beat = 0;
 var chord_playout = {note:[], note1:null, note2:null, note3:null, note4:null, note5:null};
@@ -139,6 +139,11 @@ function next_sub_beat(){//timer that goes with the rate of sixteenth
           play_drum(i);
         }
       }
+      if (this_sub_beat == 0){
+        if (section==2){played_bar++}
+        if (this_bar == chord.N_BAR-1){ this_bar = 0;}
+        else {this_bar = (this_bar + 1)%24;}
+      }
       if (this_sub_beat%drum.metric_subdivision == 0) {
         this_beat = (this_sub_beat/drum.metric_subdivision)+this_bar*metric;//update current beat
         render_current_beat(this_beat);//highlight current beat
@@ -151,15 +156,13 @@ function next_sub_beat(){//timer that goes with the rate of sixteenth
           render_key_mode();
         }//if there is a chord in the current beat: play chord, update current key
       }
+      if (this_sub_beat%drum.N_beats==0){
+      animation.prev_bar_milliseconds = Date.now();//Sets to zero the time passed from the previous bar
+      }
       render_stroke_selector();//Movement of the highlighted little squares(DM)
       this_sub_beat++;
       this_sub_beat = this_sub_beat%drum.N_beats;
-      if (this_sub_beat == 0){
-        if (section==2){played_bar++}
-        if (this_bar == chord.N_BAR-1){ this_bar = 0;}
-        else {this_bar = (this_bar + 1)%24;}
-        animation.prev_bar_milliseconds = Date.now();//Sets to zero the time passed from the previous bar
-      }    
+          
 }
 function reset_timer(){
   clearInterval(drum.timer);//resets the timer (it is called if there are changes on: bpm, shuffle/straight)
@@ -526,18 +529,19 @@ function DM_play(){//Buttons "start" both in composition and execution
   play_button.onclick = DM_stop;
   this_sub_beat = 0;
   this_beat = 0;
-  this_bar = 0;
+  this_bar = -1;
   drum.alpha = 0;
   drum.go = true;
-  resync();
+  resync(); 
   reset_timer();
+  next_sub_beat();
 }
 function DM_stop(){//Buttons "stop" both in composition and execution
   play_button.innerHTML = 'PLAY';
   play_button.onclick = DM_play;
   this_sub_beat = 0;//reset all counters
   this_beat = 0;
-  this_bar = 0;
+  this_bar = -1;
   drum.go = false;
   render_current_beat (this_beat);
   box_key.innerHTML = '-';//key suggestion in execution 
