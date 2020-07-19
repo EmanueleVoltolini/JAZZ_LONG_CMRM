@@ -235,6 +235,8 @@
 }
 #RoundVisualizer{
   position : fixed;
+  height:27vh;
+  width:13vw;
   top: 1vh;
   left: 50vw;
   border-radius: 50%;
@@ -306,21 +308,21 @@
 
 #settima_button{
     position: absolute;
-    left: 10%;
-    top: 45%;
+    left: 5vw;
+    top: 23vh;
     transform: translate(-50%, -50%);
 }
 #nona_button{
     position: absolute;
-    left: 10%;
-    top: 60%;
+    left: 5vw;
+    top: 31vh;
     transform: translate(-50%, -50%);
 }
 
 #empty_button{
     position: absolute;
-    left: 10%;
-    top: 75%;
+    left: 5vw;
+    top: 39vh;
     transform: translate(-50%, -50%);
 }
 
