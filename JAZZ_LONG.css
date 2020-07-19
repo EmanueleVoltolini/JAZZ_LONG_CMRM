@@ -282,7 +282,7 @@
     width: 100vw;
 }
 
-/*SEZIONE A DESTRA*/
+/*RIGHT SECTION*/
 #chords_selector{
     width: 45vw;
     height: 24vw;
@@ -367,7 +367,7 @@
 .tonal_chord{
     background-color: rgb(37, 92, 110);
 }
-/*TASTIERA TONALITà*/
+/*KEY SELECTION KEYBOARD*/
 #Tonalità{
     position: absolute;
     left: 50%;
@@ -411,7 +411,7 @@
     background-color:  rgb(82, 76, 76);
 }
 
-/*AREA PRESET*/
+/*PRESET AREA*/
 #preset_list{
     width: 20%;
     height: 15%;
@@ -437,7 +437,7 @@
 }
 
 
-/*SEZIONE IN BASSO*/
+/*SECTION BELOW*/
   #chords_sequence{
     width: 95vw;
     height: 40vh;
