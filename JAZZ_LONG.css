@@ -8,6 +8,18 @@
 /*############################################################################################################################
 ######################################################  HOME PAGE   ##########################################################
 ##############################################################################################################################*/
+#intro{
+    background-image: url("jazz - Copia.png");
+    position : absolute;
+    left : 50%;
+    bottom: 60%;
+    transform: translate(-50%,60%);
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-size: cover;
+    background-position: center; /* Center the image */
+}
 
 .player{ /*Players from the DB*/
     width: 95%;
@@ -741,18 +753,6 @@ body {
 ######################################################  SCORE PAGES   ########################################################
 ##############################################################################################################################*/
 
-#intro{
-    background-image: url("Images/jazz - Copia.png");
-    position : absolute;
-    left : 50%;
-    bottom: 60%;
-    transform: translate(-50%,60%);
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    background-size: cover;
-    background-position: center; /* Center the image */
-}
 #statistic{
     background-image: url("Images/jazz - Copia.png");
     position : absolute;
