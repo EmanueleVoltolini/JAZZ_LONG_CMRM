@@ -580,7 +580,6 @@ tempo_selector.onchange = function(event){//input tempo
   //Easter egg triggering
   if (event.target.value == "NyanCat"){easter_egg();}
 }
-
 //////////////////////////////////////////EXECUTION//////////////////////////////////////////
 //chord creation
 function create_chord(semitones, tonalita,seventh,ninth, inv, oct){ //Receives the object chord from the matrix and generates the array of audios
@@ -624,8 +623,9 @@ function create_chord(semitones, tonalita,seventh,ninth, inv, oct){ //Receives t
     if(inv == 1 && i==0){chord_playout.note[i] = chord_playout.note[i] + 12;}
     else if(inv == 2 && (i==0 || i == 1)){chord_playout.note[i] = chord_playout.note[i] + 12}
     else if(inv == 3 && i == 2){chord_playout.note[i] = chord_playout.note[i] - 12;}
-    else if(inv == 4 && i == 1){chord_playout.note[i] = chord_playout.note[i] -12}
+    else if(inv == 4 && i == 1){chord_playout.note[i] = chord_playout.note[i] -12;}
     else if(inv == 5 && (i==0 || i == 2)){chord_playout.note[i] = chord_playout.note[i] -12;}
+    if(chord_playout.note[i]+24>60){chord_playout.note[i]= chord_playout.note[i]-12;}
   }
   //Chord creation assemblying audio files
   chord_playout.note1 = new Audio(path + instrument_path[instrument_chord] + String(24 + chord_playout.note[0]) + '.wav');
@@ -659,7 +659,7 @@ else if (chord_playout.note5 && !chord_playout.note4){
 else{
   new_chord = [chord_playout.note1,chord_playout.note2,chord_playout.note3];
 }
-  return new_chord;
+return new_chord;
 }
 //Bouncing ball
 function play_bouncing(){
