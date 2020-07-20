@@ -677,7 +677,7 @@ function Midi_Message_Received(){//Acts in relation to the content of the MIDI m
                     statistics.chords_note++;
                   }
                 }
-                if(note==exec.key+5){
+                if(note==exec.key+5 && mode!=11){
                   statistics.avoid_note++;
                 }
                 if(mode==11 && note==exec.key+2 && !chord.NONA){
