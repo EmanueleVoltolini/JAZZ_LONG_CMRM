@@ -100,6 +100,7 @@ Your score will be automatically updated at the end of every session by adding i
 For the best experience we strongly recommend downloading the app.
 
 Here you can find the video presentation of our work: https://youtu.be/2y9JGPbGHlw
+and a short DEMO of its usage: https://youtu.be/QzTVLKKxQO4
 
 Wanna know more about the structure of the code? Take a glance at the file CodeMap.pdf
 
