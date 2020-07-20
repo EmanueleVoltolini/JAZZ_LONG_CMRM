@@ -359,7 +359,7 @@ function chord_selection(object, index){ //When a chord is choosen checks if the
   object.onclick = function(event){if (chord.selected_beat_index !=null) {chord_clicked(event, index)}}
 }
 function chord_clicked(event, index){
-    myObject = {tonalita: chord.KEY, semitones:array_plotter[index], seventh: chord.SETTIMA, ninth: chord.NONA}; //Creates the object chord with its characteristics
+    myObject = {tonalita: chord.KEY, semitones:array_plotter[index], seventh: chord.SETTIMA, ninth: chord.NONA, inversion: chord.inversion}; //Creates the object chord with its characteristics
     chord.MATRIX[Math.floor(chord.selected_beat_index/metric)][chord.selected_beat_index%metric]=myObject; //Assign the chord to the relative beat slot in the matrix
     render_beats();
 }
@@ -566,7 +566,7 @@ tempo_selector.onchange = function(event){//input tempo
 
 //////////////////////////////////////////EXECUTION//////////////////////////////////////////
 //chord creation
-function create_chord(semitones, tonalita,seventh,ninth){ //Receives the object chord from the matrix and generates the array of audios
+function create_chord(semitones, tonalita,seventh,ninth, inv){ //Receives the object chord from the matrix and generates the array of audios
   //First build the chord as distances from the fundamental note
   if (semitones == 0 || semitones == 5 || semitones == 7){
       if(seventh == 1){
@@ -603,7 +603,12 @@ function create_chord(semitones, tonalita,seventh,ninth){ //Receives the object 
   }
   //Shifting note in relation to the object passed(relative to the right fundamental note of the chord)
   for (i = 0; i < chord_playout.note.length; i++){
-      chord_playout.note[i] = chord_playout.note[i] + semitones + tonalita;
+    chord_playout.note[i] = chord_playout.note[i] + semitones + tonalita;
+    if(inv == 1 && i==0){chord_playout.note[i] = chord_playout.note[i] + 12;}
+    else if(inv == 2 && (i==0 || i == 1)){chord_playout.note[i] = chord_playout.note[i] + 12}
+    else if(inv == 3 && i == 2){chord_playout.note[i] = chord_playout.note[i] - 12;}
+    else if(inv == 4 && i == 1){chord_playout.note[i] = chord_playout.note[i] -12}
+    else if(inv == 5 && (i==0 || i == 2)){chord_playout.note[i] = chord_playout.note[i] -12;}
   }
   //Chord creation assemblying audio files
   chord_playout.note1 = new Audio(path + instrument_path[instrument_chord] + String(24 + chord_playout.note[0]) + '.wav');
@@ -1039,7 +1044,7 @@ function easter_egg(){
 
 function play_chord (obj){//play a chord
   stop_previous_chord();
-  chord_created = create_chord(obj.semitones, obj.tonalita, obj.seventh, obj.ninth);
+  chord_created = create_chord(obj.semitones, obj.tonalita, obj.seventh, obj.ninth, obj.inversion);
   for (i=0; i<chord_created.length; i++) {
     chord_created[i].volume = chordGain;
     chord_created[i].play();
