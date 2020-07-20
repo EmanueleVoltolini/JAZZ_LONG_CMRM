@@ -67,7 +67,7 @@ const modes = ['Ionian', '-', 'Dorian', '-', 'Phrygian', 'Lydian', '-',  'Mixoly
 const instrument_path =['Gpiano/Gpiano',  'Hammond/Hammond', 'Guitar/Guitar'];
 const instrument_name =['Gpiano',  'Hammond', 'Guitar'];
 const difficulty_level_array = ['EASY', 'MEDIUM', 'HARD'];
-const stat = ['right_note', 'wrong_note', 'chords_note', 'tot_note', 'rtr', 'final_score'];
+const stat = ['right_note', 'wrong_note', 'chords_note','avoid_note', 'tot_note', 'rtr', 'final_score'];
 
 //Drum Machine
 const N_drums = 6;
@@ -105,7 +105,7 @@ var ball = {x:15,y:11,vx:0,vy:0.5,control:1};
 var keys_handlers = [];
 var chord_handlers = [];
 var animation = {prev_bar_milliseconds:0, prev_beat_milliseconds:0, lag_beat:0, lag_bar:0, phase_beat:0, phase_bar:0};//serve per le animazioni
-var statistics ={right_note: 0, wrong_note: 0, tot_note: 0, chords_note: 0, rtr: 0, final_score: 0};
+var statistics ={right_note: 0, wrong_note: 0, chords_note: 0, avoid_note: 0, tot_note: 0,  rtr: 0, final_score: 0};
 var drumGain = 0.5; //gain is normalized from 0 to 1
 var chordGain = 0.5;
 var pianoGain = 0.5;
@@ -113,6 +113,7 @@ var difficulty_level = 0;
 var played_bar = 0; //numero di bar suonate in esecuzione
 var instrument_chord = 0;
 var instrument_main = 0;
+var mode=0;
 
 //Bouncing Ball 
 canvas = document.querySelector("#mycanvas")
@@ -669,14 +670,20 @@ function Midi_Message_Received(){//Acts in relation to the content of the MIDI m
               if (exec.tasti[(index) % 12] ){
                 render_played_button(tasto, 0);
                 statistics.right_note++;
-                note=(index)%12;
+                note=index%12;
                 chord_note=chord_playout.note;
                 for(i=0;i<chord_note.length;i++){
                   if (note==(chord_note[i]%12)){
                     statistics.chords_note++;
                   }
                 }
-                
+                if(note==exec.key+5){
+                  statistics.avoid_note++;
+                }
+                if(mode==11 && note==exec.key+2 && !chord.NONA){
+                  statistics.avoid_note++;
+
+                }  
               }
               else{
                 render_played_button(tasto, 1);
@@ -909,6 +916,7 @@ function render_key_mode(){ //Render name of current key and modal scale
   box_key.innerHTML= all_keys_text[exec.key];
   index = chord.MATRIX[Math.floor(this_beat/metric)][this_beat%metric].semitones;
   my_string = all_keys_text[(index+exec.key)%12]+' - '+ modes[index];
+  mode=index;
   box_mode.innerHTML =  my_string;
 }
 
