@@ -677,13 +677,26 @@ function Midi_Message_Received(){//Acts in relation to the content of the MIDI m
                     statistics.chords_note++;
                   }
                 }
-                if(note==exec.key+5 && mode!=11){
+
+                //avoid_notes
+                if(mode==0 || mode==7 && note==(exec.key+mode+5)%12){
                   statistics.avoid_note++;
                 }
-                if(mode==11 && note==exec.key+2 && !chord.NONA){
+
+                if(mode==4 && ((note==(exec.key+mode+1)%12 && !chord.NONA)|| note==(exec.key+mode+8)%12)){
+                  statistics.avoid_note++;
+                }
+
+                if(mode==9 && note==(exec.key+mode+7)%12){
                   statistics.avoid_note++;
 
+                }
+
+                if(mode==11 && note==(exec.key+mode+2)%12 && !chord.NONA){
+                  statistics.avoid_note++;
                 }  
+
+                
               }
               else{
                 render_played_button(tasto, 1);
