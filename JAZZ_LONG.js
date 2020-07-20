@@ -387,16 +387,16 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
         new_bar();
       }
       /*first chord */
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[1], seventh: true, ninth: false}; //Creates the obj chord
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[1], seventh: true, ninth: false, inversion:0}; //Creates the obj chord
       chord.MATRIX[0][0]=myObject; //Puts the chord into the matrix
       /*second chord*/
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[4], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[4], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[1][0]=myObject;
       /*third chord*/
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[3], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[3], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[2][0]=myObject;
       /*fourth chord */
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[2], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[2], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[3][0]=myObject;
     }/*first preset*/
     
@@ -406,18 +406,18 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       }
       /*first chord */
       KEY_p = (chord.KEY+2)%12;
-      myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false};
+      myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[0][0]=myObject;
       /*second chord*/
       KEY_p = (KEY_p+5)%12;
-      myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false};
+      myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[1][0]=myObject;
       /*third chord*/
       chord.KEY = chord.KEY;
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[2], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[2], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[2][0]=myObject;
       /*fourth chord */
-      myObject = {tonalita: chord.KEY, semitones:array_plotter[1], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones:array_plotter[1], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[3][0]=myObject;
     }/*second preset*/
     
@@ -427,9 +427,9 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       }
       KEY_p = chord.KEY;
       for(r=0; r<12; r=r+2){
-        myObject = {tonalita: KEY_p, semitones:array_plotter[3], seventh: true, ninth: false};
+        myObject = {tonalita: KEY_p, semitones:array_plotter[3], seventh: true, ninth: false, inversion: 0};
         chord.MATRIX[r][0]=myObject;
-        myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false};
+        myObject = {tonalita: KEY_p, semitones:array_plotter[2], seventh: true, ninth: false, inversion: 0};
         chord.MATRIX[r+1][0]=myObject;
         KEY_p = (KEY_p+10)%12;
       }
@@ -441,7 +441,7 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       }
       ap = 5;
       for(r=0; r<4; r++){
-        myObject = {tonalita: chord.KEY, semitones: array_plotter[ap], seventh: true, ninth: false};
+        myObject = {tonalita: chord.KEY, semitones: array_plotter[ap], seventh: true, ninth: false, inversion: 0};
         chord.MATRIX[r][0]=myObject;
         ap--;
       }
@@ -457,7 +457,7 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
         chord.MATRIX[r][0]=myObject;
         ap= ap+2;
       }
-      myObject = {tonalita: chord.KEY, semitones: array_plotter[0], seventh: true, ninth: false};
+      myObject = {tonalita: chord.KEY, semitones: array_plotter[0], seventh: true, ninth: false, inversion: 0};
       chord.MATRIX[r][0]=myObject;
     }/*fifth preset*/
     render_beats();/*render preset*/
