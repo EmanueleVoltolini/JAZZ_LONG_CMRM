@@ -78,7 +78,7 @@ const preset_names = ["Preset1","Waltz","","","","",
                       "Preset4","Blues", "Swing","","","",
                       "Preset5","","","","","",
                       "Preset6","Jazz5","","","",""];
-var ctx = RoundVisualizer.getContext("2d"); //canvas context
+//var ctx = RoundVisualizer.getContext("2d"); //canvas context
 
 //Harmonic Section
 const all_keys_text = ['C', 'C#','D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B' ];
@@ -191,7 +191,7 @@ function next_frame(){//Frame rate timer(used for animations in execution page a
     animate_sliding_bars();
     if (drum.go){
         drum.alpha = 2*Math.PI*animation.phase_bar;
-        render_round_visualizer();
+        //render_round_visualizer();
     }
 }
 function resync(){//resyncronizes timer animation on start reproduction (DM_play)
@@ -871,6 +871,7 @@ function render_stroke_selector(){//Show selected beats on stroke selector
       }
   );
 }
+/*
 ctx.strokeStyle = "#d41313";//Radar "hand" color
 ctx.lineWidth = 5;//Radar "hand" thickness
 function render_round_visualizer(){//Update radar
@@ -915,7 +916,7 @@ function draw_circle(centerX,centerY,beat){//Draw a round dot
   ctx.lineWidth = 2;
   ctx.strokeStyle = '#003300';
   ctx.stroke();
-}
+}*/
 
 //////////////////////////////////////////Bouncing Ball//////////////////////////////////////////
 function draw() {//Render the bouncing ball
