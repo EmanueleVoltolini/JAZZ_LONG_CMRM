@@ -454,7 +454,7 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       }
       ap = 0;
       for(r=0; r<3; r++){
-        myObject = {tonalita: chord.KEY, semitones: ap, seventh: true, ninth: false};
+        myObject = {tonalita: chord.KEY, semitones: ap, seventh: true, ninth: false, inversion: 0, octave:0};
         chord.MATRIX[r][0]=myObject;
         ap= ap+2;
       }
