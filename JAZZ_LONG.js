@@ -460,6 +460,17 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       myObject = {tonalita: chord.KEY, semitones: array_plotter[0], seventh: true, ninth: false, inversion: 0, octave:0};
       chord.MATRIX[r][0]=myObject;
     }/*fifth preset*/
+    if (chord.PRESET == 6){
+      grades = [2,7,0,0];//II-V-I in semitones
+      for (j=0;j<24;j++){
+        new_bar();
+        this_loop = Math.floor(j/4);
+        this_grade = grades[j%4]//calculate the chord root...
+        this_key = (chord.KEY + 12 - 2*this_loop)%12;//...and the reference key
+        this_chord = {tonalita: this_key, semitones: this_grade, seventh:true,ninth:false,inversion:0,octave:-1};
+        chord.MATRIX[j][0] = this_chord;//compile matrix
+      }
+    }/*sixth preset*/
     render_beats();/*render preset*/
 }
 function chord_inverter(){
