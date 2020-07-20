@@ -93,7 +93,7 @@ for (i=0; i<6; i++){first_preset[i]= new Array(16).fill(0)};//Initializes the DM
 var drum = {N_beats:16,metric_subdivision:4,tempo_bpm:120,go:false,prescaler:0,this_preset:first_preset,alpha:0,timer:0};
 var chord_sequence_matrix= [];
 for (i=0; i<24; i++){chord_sequence_matrix[i]= new Array(metric).fill(null)} //Creates a matrixwith a maximum of 24 bars
-var chord = {KEY:0,PRESET:0,MATRIX:chord_sequence_matrix,SETTIMA:false,NONA:false,N_BAR:0,selected_beat_index:null};
+var chord = {KEY:0,PRESET:0,MATRIX:chord_sequence_matrix,SETTIMA:false,NONA:false,N_BAR:0,selected_beat_index:null, inversion:0};
 var this_bar = -1;
 var this_sub_beat = 0;
 var this_beat = 0;
@@ -359,7 +359,7 @@ function chord_selection(object, index){ //When a chord is choosen checks if the
   object.onclick = function(event){if (chord.selected_beat_index !=null) {chord_clicked(event, index)}}
 }
 function chord_clicked(event, index){
-    myObject = {tonalita: chord.KEY, semitones:array_plotter[index], seventh: chord.SETTIMA, ninth: chord.NONA}; //Creates the object chord with its characteristics
+    myObject = {tonalita: chord.KEY, semitones:array_plotter[index], seventh: chord.SETTIMA, ninth: chord.NONA, inversion: chord.inversion}; //Creates the object chord with its characteristics
     chord.MATRIX[Math.floor(chord.selected_beat_index/metric)][chord.selected_beat_index%metric]=myObject; //Assign the chord to the relative beat slot in the matrix
     render_beats();
 }
@@ -460,6 +460,10 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
       chord.MATRIX[r][0]=myObject;
     }/*fifth preset*/
     render_beats();/*render preset*/
+}
+function chord_inverter(){
+  chord.inversion++;
+  if(chord.inversion==6){chord.inversion=0;}
 }
 
 //////////////////////////////////////////DRUM MACHINE//////////////////////////////////////////
@@ -562,7 +566,7 @@ tempo_selector.onchange = function(event){//input tempo
 
 //////////////////////////////////////////EXECUTION//////////////////////////////////////////
 //chord creation
-function create_chord(semitones, tonalita,seventh,ninth){ //Receives the object chord from the matrix and generates the array of audios
+function create_chord(semitones, tonalita,seventh,ninth, inv){ //Receives the object chord from the matrix and generates the array of audios
   //First build the chord as distances from the fundamental note
   if (semitones == 0 || semitones == 5 || semitones == 7){
       if(seventh == 1){
@@ -599,7 +603,12 @@ function create_chord(semitones, tonalita,seventh,ninth){ //Receives the object 
   }
   //Shifting note in relation to the object passed(relative to the right fundamental note of the chord)
   for (i = 0; i < chord_playout.note.length; i++){
-      chord_playout.note[i] = chord_playout.note[i] + semitones + tonalita;
+    chord_playout.note[i] = chord_playout.note[i] + semitones + tonalita;
+    if(inv == 1 && i==0){chord_playout.note[i] = chord_playout.note[i] + 12;}
+    else if(inv == 2 && (i==0 || i == 1)){chord_playout.note[i] = chord_playout.note[i] + 12}
+    else if(inv == 3 && i == 2){chord_playout.note[i] = chord_playout.note[i] - 12;}
+    else if(inv == 4 && i == 1){chord_playout.note[i] = chord_playout.note[i] -12}
+    else if(inv == 5 && (i==0 || i == 2)){chord_playout.note[i] = chord_playout.note[i] -12;}
   }
   //Chord creation assemblying audio files
   chord_playout.note1 = new Audio(path + instrument_path[instrument_chord] + String(24 + chord_playout.note[0]) + '.wav');
@@ -796,6 +805,14 @@ function render_selected_beat(index){//Highlight the selected beat which you are
 function render_preset_clicked(index){
   all_presets.forEach(function (object){object.classList.remove("selected_preset")}); //Deselects all the presets
   all_presets[index].classList.add("selected_preset"); //Selects the right preset
+}
+function chord_inverter_render(){
+  if(chord.inversion==0){inversion_button.innerHTML = 'Root'}
+  if(chord.inversion==1){inversion_button.innerHTML = 'I Inversion'}
+  if(chord.inversion==2){inversion_button.innerHTML = 'II Inversion'}
+  if(chord.inversion==3){inversion_button.innerHTML = 'Drop 2'}
+  if(chord.inversion==4){inversion_button.innerHTML = 'Drop 3'}
+  if(chord.inversion==5){inversion_button.innerHTML = 'Drop 2+4'}
 }
 
 //////////////////////////////////////////Drum Machine//////////////////////////////////////////
@@ -1027,7 +1044,7 @@ function easter_egg(){
 
 function play_chord (obj){//play a chord
   stop_previous_chord();
-  chord_created = create_chord(obj.semitones, obj.tonalita, obj.seventh, obj.ninth);
+  chord_created = create_chord(obj.semitones, obj.tonalita, obj.seventh, obj.ninth, obj.inversion);
   for (i=0; i<chord_created.length; i++) {
     chord_created[i].volume = chordGain;
     chord_created[i].play();
