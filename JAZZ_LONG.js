@@ -301,6 +301,7 @@ function key_clicked(event, index){ //Updates the key of chord selection
     chord.KEY = index; //Assigns to "chord.KEY" the index of the key, selected from "all_keys"
     if (chord.PRESET!=0) {preset_creation();} //If a preset is selected it is rebuilt with the new key
     render_chords();
+    chord_octave_render();
 }
 all_keys.forEach(key_selection); //Sets all the printed keyboard buttons to listen for the click
 settima_button.onclick = function(event) {chord.SETTIMA = !chord.SETTIMA; render_chords()}//Button switch the value of the variable and renders the chords
@@ -839,8 +840,8 @@ function chord_inverter_render(){
   if(chord.inversion==5){inversion_button.innerHTML = 'Drop 2+4'}
 }
 function chord_octave_render(){
-  if(chord.octave==0){octave_button.innerHTML = 'C4'}
-  if(chord.octave==-1){octave_button.innerHTML = 'C3'}
+  if(chord.octave==0){octave_button.innerHTML =  all_keys_text[chord.KEY] + "4"}
+  if(chord.octave==-1){octave_button.innerHTML = all_keys_text[chord.KEY] + "3"}
 }
 
 //////////////////////////////////////////Drum Machine//////////////////////////////////////////
