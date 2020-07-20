@@ -832,7 +832,7 @@ function render_preset_clicked(index){
   all_presets[index].classList.add("selected_preset"); //Selects the right preset
 }
 function chord_inverter_render(){
-  if(chord.inversion==0){inversion_button.innerHTML = 'Root'}
+  if(chord.inversion==0){inversion_button.innerHTML = 'Root Position'}
   if(chord.inversion==1){inversion_button.innerHTML = 'I Inversion'}
   if(chord.inversion==2){inversion_button.innerHTML = 'II Inversion'}
   if(chord.inversion==3){inversion_button.innerHTML = 'Drop 2'}
