@@ -93,7 +93,7 @@ for (i=0; i<6; i++){first_preset[i]= new Array(16).fill(0)};//Initializes the DM
 var drum = {N_beats:16,metric_subdivision:4,tempo_bpm:120,go:false,prescaler:0,this_preset:first_preset,alpha:0,timer:0};
 var chord_sequence_matrix= [];
 for (i=0; i<24; i++){chord_sequence_matrix[i]= new Array(metric).fill(null)} //Creates a matrixwith a maximum of 24 bars
-var chord = {KEY:0,PRESET:0,MATRIX:chord_sequence_matrix,SETTIMA:false,NONA:false,N_BAR:0,selected_beat_index:null};
+var chord = {KEY:0,PRESET:0,MATRIX:chord_sequence_matrix,SETTIMA:false,NONA:false,N_BAR:0,selected_beat_index:null, inversion:0};
 var this_bar = -1;
 var this_sub_beat = 0;
 var this_beat = 0;
@@ -461,6 +461,10 @@ function preset_creation(){ //Builds the presets inside the matrix and calls the
     }/*fifth preset*/
     render_beats();/*render preset*/
 }
+function chord_inverter(){
+  chord.inversion++;
+  if(chord.inversion==6){chord.inversion=0;}
+}
 
 //////////////////////////////////////////DRUM MACHINE//////////////////////////////////////////
 function generate_stroke_selector(){//Generates all the beats in the selector(rows of little squares) 
@@ -796,6 +800,14 @@ function render_selected_beat(index){//Highlight the selected beat which you are
 function render_preset_clicked(index){
   all_presets.forEach(function (object){object.classList.remove("selected_preset")}); //Deselects all the presets
   all_presets[index].classList.add("selected_preset"); //Selects the right preset
+}
+function chord_inverter_render(){
+  if(chord.inversion==0){inversion_button.innerHTML = 'Root'}
+  if(chord.inversion==1){inversion_button.innerHTML = 'I Inversion'}
+  if(chord.inversion==2){inversion_button.innerHTML = 'II Inversion'}
+  if(chord.inversion==3){inversion_button.innerHTML = 'Drop 2'}
+  if(chord.inversion==4){inversion_button.innerHTML = 'Drop 3'}
+  if(chord.inversion==5){inversion_button.innerHTML = 'Drop 2+4'}
 }
 
 //////////////////////////////////////////Drum Machine//////////////////////////////////////////
