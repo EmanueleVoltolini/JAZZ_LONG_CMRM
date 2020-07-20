@@ -306,6 +306,13 @@
     font-size: 5vh;
 }
 
+#inversion_button{
+    position: absolute;
+    left: 5vw;
+    top: 15vh;
+    transform: translate(-50%, -50%);
+}
+
 #settima_button{
     position: absolute;
     left: 5vw;
